@@ -694,51 +694,50 @@
         }, { passive: true });
     </script>
 
-    <!-- Scripts de animação carregados de forma assíncrona com defer -->
     <script>
-        /* Aguarda os scripts defer (GSAP + Lenis) carregarem antes de inicializar */
+        /* CORREÇÃO 1 — Impede o browser de restaurar posição de scroll ao recarregar
+           (Safari/Chrome mobile salvam a posição e jogam o usuário no meio da página) */
+        if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
+        window.scrollTo(0, 0);
+    </script>
+
+    <script>
         window.addEventListener('load', function () {
 
-            /* ---- Lenis smooth scroll ----
-               CORREÇÃO DO AUTO-SCROLL MOBILE: Lenis intercepta eventos de touch
-               e pode causar scroll indesejado. Usamos autoRaf e desabilitamos em
-               touch devices se necessário.
-            */
+            window.scrollTo(0, 0);
+
+            /* ---- Lenis smooth scroll ---- */
             if (typeof Lenis !== 'undefined') {
                 const lenis = new Lenis({
                     duration: 1.2,
                     easing: function(t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); },
                     smoothWheel: true,
-                    smoothTouch: false,   /* IMPORTANTE: desativa smooth em touch para evitar auto-scroll no mobile */
+                    smoothTouch: false,
                     touchMultiplier: 1,
                 });
-
-                function raf(time) {
-                    lenis.raf(time);
-                    requestAnimationFrame(raf);
-                }
+                function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
                 requestAnimationFrame(raf);
-
-                /* Integração Lenis + ScrollTrigger */
-                if (typeof ScrollTrigger !== 'undefined') {
-                    lenis.on('scroll', ScrollTrigger.update);
-                }
+                if (typeof ScrollTrigger !== 'undefined') { lenis.on('scroll', ScrollTrigger.update); }
             }
 
-            /* ---- GSAP ScrollTrigger reveals ---- */
+            /* ---- GSAP ScrollTrigger reveals ----
+               CORREÇÃO 2 — Removido 'reverse'. O 'toggleActions: play none none reverse'
+               anterior desfazia a animação ao rolar para cima, fazendo os elementos
+               voltarem para opacity:0 / y:50, o que puxava a página de volta no mobile.
+               'once: true' garante que cada elemento anima uma única vez. */
             if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
                 gsap.registerPlugin(ScrollTrigger);
-
                 gsap.utils.toArray('.gs-reveal').forEach(function(el) {
                     gsap.from(el, {
-                        y: 50,
+                        y: 40,
                         opacity: 0,
-                        duration: 1.2,
+                        duration: 1.0,
                         ease: 'power3.out',
                         scrollTrigger: {
                             trigger: el,
-                            start: 'top 85%',
-                            toggleActions: 'play none none reverse',
+                            start: 'top 88%',
+                            toggleActions: 'play none none none',
+                            once: true,
                         }
                     });
                 });
