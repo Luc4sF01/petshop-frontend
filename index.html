@@ -1,293 +1,282 @@
 <!DOCTYPE html>
-<html lang="pt-br" class="scroll-smooth">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pets-Top | Banho, Tosa e Estética Animal em Guimarânia</title>
 
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Pets-Top: banho, tosa e estética animal com técnica, carinho e atenção individual em Guimarânia, MG. Agende online com facilidade. Ter–Sáb, 09h às 18h." />
-    <meta name="keywords" content="petshop guimarânia, banho e tosa guimarânia, estética animal minas gerais, tosa design cachorro" />
+    <!-- Impede restauração de scroll (deve ser o primeiro script) -->
+    <script>if('scrollRestoration'in history)history.scrollRestoration='manual';</script>
+
+    <!-- SEO -->
+    <meta name="description" content="Pets-Top: banho, tosa e estética animal com técnica e carinho em Guimarânia, MG. Agende online. Ter–Sáb, 09h às 18h." />
     <meta name="robots" content="index, follow" />
+    <meta property="og:type"        content="website" />
+    <meta property="og:title"       content="Pets-Top | Banho, Tosa e Estética Animal em Guimarânia" />
+    <meta property="og:description" content="Cuidado de verdade, resultado que você vê. Agende online em Guimarânia, MG." />
+    <meta property="og:image"       content="/imgs/intro/og-cover.jpg" />
+    <meta property="og:url"         content="https://www.petstop.com.br" />
 
-    <!-- Open Graph / WhatsApp / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Pets-Top | Banho, Tosa e Estética Animal em Guimarânia" />
-    <meta property="og:description" content="Cuidado de verdade, resultado que você vê. Agende online o banho, tosa ou estética do seu pet em Guimarânia, MG." />
-    <meta property="og:image" content="/imgs/intro/og-cover.jpg" />
-    <meta property="og:url" content="https://www.petstop.com.br" />
-    <meta property="og:locale" content="pt_BR" />
-
-    <!-- Schema LocalBusiness (SEO Local / Google) -->
+    <!-- Schema LocalBusiness -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "AnimalShelter",
-      "name": "Pets-Top",
-      "description": "Banho, tosa e estética animal com cuidado, técnica e atenção individual em Guimarânia, MG.",
-      "url": "https://www.petstop.com.br",
-      "telephone": "+553498183877",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "R. Guimarães, 694",
-        "addressLocality": "Guimarânia",
-        "addressRegion": "MG",
-        "postalCode": "38740-000",
-        "addressCountry": "BR"
-      },
-      "openingHours": ["Tu-Sa 09:00-18:00"],
-      "priceRange": "$$",
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "5.0",
-        "reviewCount": "47"
-      }
-    }
+    {"@context":"https://schema.org","@type":"LocalBusiness","name":"Pets-Top",
+     "telephone":"+5534981838770","address":{"@type":"PostalAddress",
+     "streetAddress":"R. Guimarães, 694","addressLocality":"Guimarânia",
+     "addressRegion":"MG","postalCode":"38740-000","addressCountry":"BR"},
+     "openingHours":["Tu-Sa 09:00-18:00"]}
     </script>
 
-    <!-- Preconnect para fontes (performance) -->
+    <!-- Fontes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
 
+    <!-- Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
-    <script src="https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js" defer></script>
-
     <script>
         tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        petPurple: '#632CA9',
-                        petPurpleDark: '#1A023A',
-                        petGreen: '#8EA716',
-                        petGreenLight: '#F4F7E9',
-                        luxuryGold: '#D4AF37',
-                        surface: '#FAFAFA',
-                    },
-                    fontFamily: {
-                        poppins: ['Poppins', 'sans-serif'],
-                        montserrat: ['Montserrat', 'sans-serif'],
-                    }
+            theme: { extend: {
+                colors: {
+                    petPurple:     '#632CA9',
+                    petPurpleDark: '#1A023A',
+                    petGreen:      '#8EA716',
+                    petGreenLight: '#F4F7E9',
+                    luxuryGold:    '#D4AF37',
+                    surface:       '#FAFAFA',
+                },
+                fontFamily: {
+                    poppins:    ['Poppins','sans-serif'],
+                    montserrat: ['Montserrat','sans-serif'],
                 }
-            }
+            }}
         }
     </script>
+
     <style>
+        *, *::before, *::after { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { overflow-x: hidden; }
         ::selection { background: #8EA716; color: #fff; }
 
+        /* Header glass */
         .glass-nav {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+            background: rgba(255,255,255,0.88);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
             border-bottom: 1px solid rgba(255,255,255,0.3);
         }
-        .glass-card {
-            background: rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(24px);
-            border: 1px solid rgba(255, 255, 255, 0.8);
-            box-shadow: 0 30px 60px -15px rgba(0,0,0,0.05);
+
+        /* Gradiente de texto */
+        .text-gradient {
+            background: linear-gradient(135deg,#632CA9,#8EA716);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        .text-gradient { background: linear-gradient(135deg, #632CA9, #8EA716); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-        .text-gradient-gold { background: linear-gradient(135deg, #D4AF37, #F3E5AB); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-        .text-outline { color: transparent; -webkit-text-stroke: 1px rgba(99, 44, 169, 0.3); }
-
-        .hover-lift { transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1); }
-        .hover-lift:hover { transform: translateY(-10px); box-shadow: 0 30px 60px -10px rgba(99, 44, 169, 0.15); border-color: rgba(142, 167, 22, 0.3); }
-
-        .blob-shape { animation: morph 8s ease-in-out infinite; border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
-        @keyframes morph {
-            0%   { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
-            50%  { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
-            100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+        /* Cards hover — só transform, sem mexer no scroll */
+        .hover-lift {
+            transition: transform .4s cubic-bezier(.2,.8,.2,1),
+                        box-shadow .4s cubic-bezier(.2,.8,.2,1),
+                        border-color .3s;
+        }
+        .hover-lift:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 24px 48px -8px rgba(99,44,169,.14);
         }
 
-        /* Marquee com will-change para GPU */
-        .marquee-inner {
+        /* Marquee — GPU only, não muda layout */
+        .marquee-track {
             display: flex;
-            gap: 3rem;
             white-space: nowrap;
             will-change: transform;
-            animation: marquee 30s linear infinite;
+            animation: marquee 32s linear infinite;
         }
         @keyframes marquee {
-            0%   { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
+            from { transform: translateX(0); }
+            to   { transform: translateX(-50%); }
         }
 
-        /* Float suave sem layout shift */
+        /* Float badge hero */
         .float-badge {
+            animation: floatY 4s ease-in-out infinite;
             will-change: transform;
-            animation: floatBadge 4s ease-in-out infinite;
         }
-        @keyframes floatBadge {
-            0%, 100% { transform: translateY(0px); }
-            50%       { transform: translateY(-8px); }
+        @keyframes floatY {
+            0%,100% { transform: translateY(0); }
+            50%      { transform: translateY(-7px); }
         }
+
+        /* Blob */
+        .blob {
+            animation: morph 9s ease-in-out infinite;
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+        }
+        @keyframes morph {
+            0%,100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+            50%      { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+        }
+
+        /* ─── Scroll reveal — CSS + IntersectionObserver ───────────
+           Elementos ficam invisíveis até entrar na viewport.
+           A classe .visible é adicionada pelo JS (sem mexer no scroll).
+           transition usa apenas opacity e transform — nada que afete layout.
+        ─────────────────────────────────────────────────────────── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity .65s ease, transform .65s ease;
+        }
+        .reveal.visible        { opacity: 1; transform: translateY(0); }
+        .reveal.d1             { transition-delay: .1s; }
+        .reveal.d2             { transition-delay: .2s; }
+        .reveal.d3             { transition-delay: .3s; }
 
         /* WhatsApp flutuante */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 28px;
-            right: 28px;
-            z-index: 200;
-            background: #25D366;
-            color: white;
-            width: 58px;
-            height: 58px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 8px 32px rgba(37,211,102,0.4);
-            transition: transform 0.3s cubic-bezier(0.2,0.8,0.2,1), box-shadow 0.3s;
+        .wpp {
+            position: fixed; bottom: 24px; right: 24px; z-index: 300;
+            width: 54px; height: 54px; border-radius: 50%;
+            background: #25D366; color: #fff;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 6px 24px rgba(37,211,102,.45);
+            transition: transform .3s, box-shadow .3s;
         }
-        .whatsapp-float:hover { transform: scale(1.12); box-shadow: 0 12px 40px rgba(37,211,102,0.55); }
+        .wpp:hover { transform: scale(1.1); }
 
-        /* Menu Mobile */
+        /* Glass card (badge hero) */
+        .glass-card {
+            background: rgba(255,255,255,.72);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 1px solid rgba(255,255,255,.85);
+            box-shadow: 0 16px 36px -8px rgba(0,0,0,.07);
+        }
+
+        /* Menu mobile — max-height transition, sem JS de scroll */
         #mobile-menu {
-            display: none;
-            flex-direction: column;
-            gap: 0;
-            background: rgba(255,255,255,0.98);
-            backdrop-filter: blur(20px);
-            border-top: 1px solid rgba(0,0,0,0.06);
-            padding: 1rem 1.5rem 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .32s cubic-bezier(.4,0,.2,1);
+            background: rgba(255,255,255,.97);
+            border-top: 1px solid rgba(0,0,0,.06);
         }
-        #mobile-menu.open { display: flex; }
+        #mobile-menu.open { max-height: 380px; }
         #mobile-menu a {
-            padding: 0.85rem 0;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-            font-size: 13px;
-            font-weight: 700;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: #1A023A;
-            text-decoration: none;
-            transition: color 0.2s;
+            display: block; padding: .8rem 1.4rem;
+            border-bottom: 1px solid rgba(0,0,0,.05);
+            font-size: 13px; font-weight: 700;
+            letter-spacing: .14em; text-transform: uppercase;
+            color: #1A023A; text-decoration: none;
+            transition: color .2s;
         }
-        #mobile-menu a:last-child { border-bottom: none; }
         #mobile-menu a:hover { color: #8EA716; }
+        #mobile-menu a:last-child { border-bottom: none; }
 
-        /* Hamburger */
-        .hamburger { display: flex; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
-        .hamburger span {
-            display: block; width: 24px; height: 2px;
+        /* Hambúrguer */
+        .hbg { display: flex; flex-direction: column; gap: 5px;
+               cursor: pointer; padding: 4px; background: none; border: none; }
+        .hbg span {
+            display: block; width: 22px; height: 2px;
             background: #1A023A; border-radius: 2px;
-            transition: all 0.3s cubic-bezier(0.2,0.8,0.2,1);
+            transition: transform .28s, opacity .28s;
             transform-origin: center;
         }
-        .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-        .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-        .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-        html.lenis { height: auto; }
-        .lenis.lenis-smooth { scroll-behavior: auto !important; }
+        .hbg.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .hbg.open span:nth-child(2) { opacity: 0; }
+        .hbg.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
     </style>
 </head>
-<body class="font-poppins bg-surface text-gray-800 overflow-x-hidden">
 
-    <!-- ===================== WHATSAPP FLUTUANTE ===================== -->
-    <a href="https://wa.me/5534981838770?text=Olá!%20Gostaria%20de%20agendar%20um%20horário%20para%20meu%20pet%20na%20Pets-Top%20%F0%9F%90%BE"
-       target="_blank" rel="noopener" class="whatsapp-float" aria-label="Falar no WhatsApp da Pets-Top">
-        <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+<body class="font-poppins bg-surface text-gray-800">
+
+    <!-- WhatsApp flutuante -->
+    <a href="https://wa.me/5534981838770?text=Olá!%20Gostaria%20de%20agendar%20um%20horário%20na%20Pets-Top%20🐾"
+       target="_blank" rel="noopener" class="wpp" aria-label="Falar no WhatsApp da Pets-Top">
+        <svg width="26" height="26" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
         </svg>
     </a>
 
-    <!-- ===================== HEADER ===================== -->
-    <header class="fixed w-full z-[100] glass-nav transition-all duration-300" id="main-header">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="w-32 hover:scale-105 transition-transform duration-500" aria-label="Pets-Top — Início">
-                <img src="/imgs/intro/logo.svg" alt="PetsTop Logo" width="128" height="48">
+    <!-- HEADER -->
+    <header id="main-header" class="fixed w-full z-[100] glass-nav transition-shadow duration-300">
+        <div class="container mx-auto px-5 py-4 flex items-center justify-between">
+            <a href="#" aria-label="Pets-Top — Início">
+                <img src="/imgs/intro/logo.svg" alt="Pets-Top" width="118" height="44">
             </a>
 
-            <!-- Nav Desktop -->
-            <nav class="hidden lg:flex gap-10 text-[11px] font-bold tracking-[0.25em] text-petPurpleDark" aria-label="Menu principal">
-                <a href="#filosofia" class="hover:text-petGreen transition-colors uppercase relative group">
-                    Sobre <span class="absolute -bottom-2 left-0 w-0 h-[2px] bg-petGreen transition-all group-hover:w-full"></span>
-                </a>
-                <a href="#como-funciona" class="hover:text-petGreen transition-colors uppercase relative group">
-                    Como Funciona <span class="absolute -bottom-2 left-0 w-0 h-[2px] bg-petGreen transition-all group-hover:w-full"></span>
-                </a>
-                <a href="#protocolos" class="hover:text-petGreen transition-colors uppercase relative group">
-                    Serviços <span class="absolute -bottom-2 left-0 w-0 h-[2px] bg-petGreen transition-all group-hover:w-full"></span>
-                </a>
-                <a href="#depoimentos" class="hover:text-petGreen transition-colors uppercase relative group">
-                    Depoimentos <span class="absolute -bottom-2 left-0 w-0 h-[2px] bg-petGreen transition-all group-hover:w-full"></span>
-                </a>
-                <a href="#contato" class="hover:text-petGreen transition-colors uppercase relative group">
-                    Contato <span class="absolute -bottom-2 left-0 w-0 h-[2px] bg-petGreen transition-all group-hover:w-full"></span>
-                </a>
+            <nav class="hidden lg:flex gap-9 text-[11px] font-bold tracking-[.22em] text-petPurpleDark" aria-label="Navegação">
+                <a href="#filosofia"     class="uppercase hover:text-petGreen transition-colors relative group">Sobre       <span class="absolute -bottom-1 left-0 w-0 h-[2px] bg-petGreen transition-all duration-300 group-hover:w-full"></span></a>
+                <a href="#como-funciona" class="uppercase hover:text-petGreen transition-colors relative group">Como Funciona <span class="absolute -bottom-1 left-0 w-0 h-[2px] bg-petGreen transition-all duration-300 group-hover:w-full"></span></a>
+                <a href="#protocolos"   class="uppercase hover:text-petGreen transition-colors relative group">Serviços    <span class="absolute -bottom-1 left-0 w-0 h-[2px] bg-petGreen transition-all duration-300 group-hover:w-full"></span></a>
+                <a href="#depoimentos"  class="uppercase hover:text-petGreen transition-colors relative group">Depoimentos <span class="absolute -bottom-1 left-0 w-0 h-[2px] bg-petGreen transition-all duration-300 group-hover:w-full"></span></a>
+                <a href="#contato"      class="uppercase hover:text-petGreen transition-colors relative group">Contato     <span class="absolute -bottom-1 left-0 w-0 h-[2px] bg-petGreen transition-all duration-300 group-hover:w-full"></span></a>
             </nav>
 
-            <div class="flex items-center gap-4">
-                <a href="agendamentos.html" class="group relative overflow-hidden bg-petPurpleDark text-white px-8 py-3.5 rounded-full font-bold text-xs uppercase tracking-widest shadow-xl shadow-petPurple/20 hover:shadow-petGreen/30 transition-all active:scale-95">
-                    <span class="relative z-10 group-hover:text-petPurpleDark transition-colors duration-300">Agendar</span>
-                    <div class="absolute inset-0 h-full w-full scale-0 rounded-full bg-petGreen transition-all duration-300 group-hover:scale-100 group-hover:rounded-none"></div>
+            <div class="flex items-center gap-3">
+                <a href="agendamentos.html"
+                   class="bg-petPurpleDark text-white px-7 py-3 rounded-full font-bold text-[11px] uppercase tracking-widest
+                          hover:bg-petGreen transition-colors duration-300 shadow-lg active:scale-95">
+                    Agendar
                 </a>
-
-                <!-- Botão Hambúrguer (mobile) -->
-                <button class="hamburger lg:hidden" id="hamburger-btn" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                <button class="hbg lg:hidden" id="hbg-btn" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu">
+                    <span></span><span></span><span></span>
                 </button>
             </div>
         </div>
 
-        <!-- Menu Mobile -->
         <nav id="mobile-menu" aria-label="Menu mobile">
-            <a href="#filosofia"    onclick="closeMobileMenu()">Sobre</a>
-            <a href="#como-funciona" onclick="closeMobileMenu()">Como Funciona</a>
-            <a href="#protocolos"   onclick="closeMobileMenu()">Serviços</a>
-            <a href="#depoimentos"  onclick="closeMobileMenu()">Depoimentos</a>
-            <a href="#contato"      onclick="closeMobileMenu()">Contato</a>
-            <a href="agendamentos.html" style="color:#8EA716; margin-top:0.5rem;">→ Agendar Online</a>
+            <a href="#filosofia"     onclick="closeMenu()">Sobre</a>
+            <a href="#como-funciona" onclick="closeMenu()">Como Funciona</a>
+            <a href="#protocolos"    onclick="closeMenu()">Serviços</a>
+            <a href="#depoimentos"   onclick="closeMenu()">Depoimentos</a>
+            <a href="#contato"       onclick="closeMenu()">Contato</a>
+            <a href="agendamentos.html" style="color:#8EA716">→ Agendar Online</a>
         </nav>
     </header>
 
-    <!-- ===================== HERO ===================== -->
-    <section id="inicio" class="relative pt-48 pb-32 min-h-[90vh] flex items-center overflow-hidden">
-        <div class="absolute top-20 -left-20 w-96 h-96 bg-petGreen/10 blur-[100px] rounded-full pointer-events-none"></div>
-        <div class="absolute bottom-0 right-0 w-[40rem] h-[40rem] bg-petPurple/5 blur-[120px] rounded-full pointer-events-none"></div>
+    <!-- HERO -->
+    <section id="inicio" class="relative pt-44 pb-28 min-h-[88vh] flex items-center overflow-hidden">
+        <div class="absolute top-16 -left-24 w-80 h-80 bg-petGreen/10 blur-[90px] rounded-full pointer-events-none" aria-hidden="true"></div>
+        <div class="absolute bottom-0 right-0 w-[36rem] h-[36rem] bg-petPurple/5 blur-[110px] rounded-full pointer-events-none" aria-hidden="true"></div>
 
-        <div class="container mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center relative z-10">
-            <div class="gs-reveal">
-                <div class="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-white border border-gray-100 shadow-sm mb-8">
+        <div class="container mx-auto px-5 grid lg:grid-cols-2 gap-14 items-center relative z-10">
+            <div class="reveal">
+                <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white border border-gray-100 shadow-sm mb-7">
                     <span class="w-2 h-2 rounded-full bg-petGreen animate-pulse"></span>
-                    <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-petPurpleDark">Guimarânia, Minas Gerais</span>
+                    <span class="text-[10px] font-bold uppercase tracking-[.2em] text-petPurpleDark">Guimarânia, Minas Gerais</span>
                 </div>
-                <h1 class="text-6xl lg:text-[5rem] font-montserrat font-black leading-[1.05] mb-8 text-petPurpleDark">
+                <h1 class="text-5xl lg:text-[4.5rem] font-montserrat font-black leading-[1.06] mb-7 text-petPurpleDark">
                     Cuidado <span class="text-gradient italic">de verdade.</span><br>
                     Resultado <span class="italic font-light">que você vê.</span>
                 </h1>
-                <p class="text-lg text-gray-500 mb-10 max-w-lg leading-relaxed font-light">
+                <p class="text-lg text-gray-500 mb-9 max-w-md leading-relaxed font-light">
                     Banho, tosa e estética animal com técnica, carinho e atenção individual. Cada pet é único — e o tratamento é feito pra ele.
                 </p>
-                <div class="flex flex-wrap items-center gap-6">
-                    <a href="agendamentos.html" class="bg-petGreen text-white px-10 py-5 rounded-[1.25rem] font-bold shadow-2xl shadow-petGreen/30 hover:bg-petPurpleDark hover:-translate-y-1 transition-all uppercase tracking-[0.2em] text-xs">
+                <div class="flex flex-wrap items-center gap-5">
+                    <a href="agendamentos.html"
+                       class="bg-petGreen text-white px-9 py-4 rounded-2xl font-bold shadow-xl shadow-petGreen/30
+                              hover:bg-petPurpleDark uppercase tracking-[.18em] text-xs transition-colors duration-300
+                              hover:-translate-y-0.5 active:scale-95">
                         Agendar Agora
                     </a>
                     <a href="https://wa.me/5534981838770?text=Olá!%20Quero%20saber%20mais%20sobre%20os%20serviços%20da%20Pets-Top."
                        target="_blank" rel="noopener"
-                       class="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-petPurpleDark hover:text-petGreen transition-colors">
-                        <svg class="w-5 h-5 text-[#25D366]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                       class="flex items-center gap-2.5 text-xs font-bold uppercase tracking-widest text-petPurpleDark hover:text-petGreen transition-colors">
+                        <svg width="18" height="18" fill="#25D366" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
                         Falar no WhatsApp
                     </a>
                 </div>
             </div>
 
-            <div class="relative gs-reveal hidden lg:block">
-                <div class="absolute inset-0 bg-gradient-to-tr from-petGreen/20 to-petPurple/20 blob-shape transform rotate-12"></div>
-                <div class="relative rounded-[3rem] overflow-hidden border-[8px] border-white shadow-2xl transform -rotate-3 hover:rotate-0 transition-transform duration-700">
-                    <img src="/imgs/intro/foto-cachorro-intro.svg" alt="Cachorro feliz após banho e tosa na Pets-Top em Guimarânia" class="w-full h-auto object-cover scale-105 hover:scale-100 transition-transform duration-1000" width="600" height="600">
+            <div class="hidden lg:block relative reveal d1">
+                <div class="absolute inset-0 bg-gradient-to-tr from-petGreen/20 to-petPurple/20 blob transform rotate-12 pointer-events-none"></div>
+                <div class="relative rounded-[2.5rem] overflow-hidden border-[7px] border-white shadow-2xl -rotate-3 hover:rotate-0 transition-transform duration-700">
+                    <img src="/imgs/intro/foto-cachorro-intro.svg"
+                         alt="Cachorro feliz após banho e tosa na Pets-Top"
+                         width="600" height="600" class="w-full h-auto object-cover">
                 </div>
-                <div class="absolute -bottom-6 -left-6 glass-card px-6 py-4 rounded-2xl flex items-center gap-4 float-badge">
-                    <div class="w-10 h-10 rounded-full bg-luxuryGold/20 flex items-center justify-center text-luxuryGold" aria-hidden="true">★</div>
+                <div class="absolute -bottom-5 -left-5 glass-card px-5 py-3.5 rounded-2xl flex items-center gap-3.5 float-badge">
+                    <div class="w-9 h-9 rounded-full bg-luxuryGold/20 flex items-center justify-center text-luxuryGold" aria-hidden="true">★</div>
                     <div>
                         <p class="text-[10px] font-bold uppercase tracking-widest text-gray-500">Avaliação</p>
                         <p class="text-sm font-black text-petPurpleDark">5.0 no Google</p>
@@ -297,35 +286,27 @@
         </div>
     </section>
 
-    <!-- ===================== FAIXA DE CONFIANÇA ===================== -->
-    <section class="py-10 bg-white border-y border-gray-100" aria-label="Destaques">
-        <div class="container mx-auto px-6">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center gs-reveal">
+    <!-- FAIXA DE CONFIANÇA -->
+    <section class="py-10 bg-white border-y border-gray-100" aria-label="Números da Pets-Top">
+        <div class="container mx-auto px-5">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center reveal">
                 <div class="flex flex-col items-center gap-2">
-                    <div class="w-10 h-10 rounded-xl bg-petGreenLight text-petGreen flex items-center justify-center shrink-0" aria-hidden="true">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path></svg>
-                    </div>
+                    <div class="w-10 h-10 rounded-xl bg-petGreenLight text-petGreen flex items-center justify-center" aria-hidden="true"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/></svg></div>
                     <p class="text-2xl font-montserrat font-black text-petPurpleDark">5.0★</p>
                     <p class="text-[10px] font-bold uppercase tracking-widest text-gray-400">Avaliação Google</p>
                 </div>
                 <div class="flex flex-col items-center gap-2">
-                    <div class="w-10 h-10 rounded-xl bg-petPurple/5 text-petPurple flex items-center justify-center shrink-0" aria-hidden="true">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                    </div>
+                    <div class="w-10 h-10 rounded-xl bg-petPurple/5 text-petPurple flex items-center justify-center" aria-hidden="true"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
                     <p class="text-2xl font-montserrat font-black text-petPurpleDark">100%</p>
                     <p class="text-[10px] font-bold uppercase tracking-widest text-gray-400">Pets Felizes</p>
                 </div>
                 <div class="flex flex-col items-center gap-2">
-                    <div class="w-10 h-10 rounded-xl bg-petGreenLight text-petGreen flex items-center justify-center shrink-0" aria-hidden="true">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                    </div>
+                    <div class="w-10 h-10 rounded-xl bg-petGreenLight text-petGreen flex items-center justify-center" aria-hidden="true"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
                     <p class="text-2xl font-montserrat font-black text-petPurpleDark">Ter–Sáb</p>
                     <p class="text-[10px] font-bold uppercase tracking-widest text-gray-400">09h às 18h</p>
                 </div>
                 <div class="flex flex-col items-center gap-2">
-                    <div class="w-10 h-10 rounded-xl bg-petPurple/5 text-petPurple flex items-center justify-center shrink-0" aria-hidden="true">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                    </div>
+                    <div class="w-10 h-10 rounded-xl bg-petPurple/5 text-petPurple flex items-center justify-center" aria-hidden="true"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg></div>
                     <p class="text-2xl font-montserrat font-black text-petPurpleDark">Guimarânia</p>
                     <p class="text-[10px] font-bold uppercase tracking-widest text-gray-400">Minas Gerais</p>
                 </div>
@@ -333,415 +314,310 @@
         </div>
     </section>
 
-    <!-- ===================== MARQUEE ===================== -->
-    <div class="py-6 bg-petPurpleDark overflow-hidden border-y border-white/10 flex items-center" aria-hidden="true">
-        <div class="marquee-inner text-white/40 font-montserrat font-black text-2xl uppercase tracking-widest">
-            <span>CUIDADO ESPECIAL</span> <span>•</span> <span>ESTÉTICA ANIMAL</span> <span>•</span> <span>BEM-ESTAR PET</span> <span>•</span> <span>QUALIDADE GUIMARÂNIA</span> <span>•</span>
-            <span>CUIDADO ESPECIAL</span> <span>•</span> <span>ESTÉTICA ANIMAL</span> <span>•</span> <span>BEM-ESTAR PET</span> <span>•</span> <span>QUALIDADE GUIMARÂNIA</span> <span>•</span>
-            <span>CUIDADO ESPECIAL</span> <span>•</span> <span>ESTÉTICA ANIMAL</span> <span>•</span> <span>BEM-ESTAR PET</span> <span>•</span> <span>QUALIDADE GUIMARÂNIA</span> <span>•</span>
+    <!-- MARQUEE -->
+    <div class="py-5 bg-petPurpleDark overflow-hidden" aria-hidden="true">
+        <div class="marquee-track text-white/35 font-montserrat font-black text-xl uppercase tracking-widest gap-12">
+            <span>Cuidado Especial</span>&nbsp;•&nbsp;<span>Estética Animal</span>&nbsp;•&nbsp;<span>Bem-estar Pet</span>&nbsp;•&nbsp;<span>Qualidade Guimarânia</span>&nbsp;•&nbsp;
+            <span>Cuidado Especial</span>&nbsp;•&nbsp;<span>Estética Animal</span>&nbsp;•&nbsp;<span>Bem-estar Pet</span>&nbsp;•&nbsp;<span>Qualidade Guimarânia</span>&nbsp;•&nbsp;
+            <span>Cuidado Especial</span>&nbsp;•&nbsp;<span>Estética Animal</span>&nbsp;•&nbsp;<span>Bem-estar Pet</span>&nbsp;•&nbsp;<span>Qualidade Guimarânia</span>&nbsp;•&nbsp;
         </div>
     </div>
 
-    <!-- ===================== SOBRE / FILOSOFIA ===================== -->
-    <section id="filosofia" class="py-32 bg-white relative">
-        <div class="container mx-auto px-6 max-w-5xl text-center gs-reveal">
-            <span class="text-luxuryGold font-black tracking-[0.3em] text-[10px] uppercase mb-6 block">Nossa Essência</span>
-            <h2 class="text-4xl md:text-6xl font-montserrat font-medium text-petPurpleDark leading-tight mb-10">
-                "Não é só banho e tosa. É cuidar de <span class="font-black italic text-petGreen">quem você ama</span> com atenção e respeito."
+    <!-- FILOSOFIA -->
+    <section id="filosofia" class="py-28 bg-white">
+        <div class="container mx-auto px-5 max-w-4xl text-center reveal">
+            <span class="text-luxuryGold font-black tracking-[.3em] text-[10px] uppercase mb-5 block">Nossa Essência</span>
+            <h2 class="text-4xl md:text-5xl font-montserrat font-medium text-petPurpleDark leading-tight mb-8">
+                "Não é só banho e tosa. É cuidar de
+                <span class="font-black italic text-petGreen">quem você ama</span>
+                com atenção e respeito."
             </h2>
-            <div class="w-24 h-1 bg-gradient-to-r from-petPurple to-petGreen mx-auto rounded-full mb-10"></div>
-            <p class="text-gray-500 text-lg font-light leading-relaxed max-w-3xl mx-auto">
+            <div class="w-20 h-1 bg-gradient-to-r from-petPurple to-petGreen mx-auto rounded-full mb-8"></div>
+            <p class="text-gray-500 text-lg font-light leading-relaxed max-w-2xl mx-auto">
                 Na Pets-Top, entendemos que cada pet tem seu jeito, seu temperamento e seu histórico. Por isso cuidamos de forma personalizada, com técnica, carinho e um ambiente preparado para deixar seu animal tranquilo e bem tratado.
             </p>
         </div>
     </section>
 
-    <!-- ===================== COMO FUNCIONA ===================== -->
-    <section id="como-funciona" class="py-32 bg-petGreenLight relative overflow-hidden">
-        <div class="absolute top-0 right-0 w-96 h-96 bg-petPurple/5 blur-[100px] rounded-full pointer-events-none"></div>
-        <div class="container mx-auto px-6 relative z-10">
-            <div class="text-center mb-20 gs-reveal">
-                <span class="text-petGreen font-black tracking-[0.3em] text-[10px] uppercase mb-4 block">Simples assim</span>
+    <!-- COMO FUNCIONA -->
+    <section id="como-funciona" class="py-28 bg-petGreenLight overflow-hidden">
+        <div class="container mx-auto px-5">
+            <div class="text-center mb-16 reveal">
+                <span class="text-petGreen font-black tracking-[.3em] text-[10px] uppercase mb-3 block">Simples assim</span>
                 <h3 class="text-4xl lg:text-5xl font-montserrat font-extrabold text-petPurpleDark italic">Como funciona?</h3>
             </div>
-
-            <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-                <div class="bg-white p-10 rounded-[2rem] border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-500 text-center gs-reveal">
-                    <div class="w-16 h-16 rounded-full bg-petPurpleDark text-white flex items-center justify-center mx-auto mb-6 text-xl font-montserrat font-black">1</div>
-                    <h4 class="text-xl font-bold text-petPurpleDark mb-3">Agende Online</h4>
+            <div class="grid md:grid-cols-3 gap-7 max-w-4xl mx-auto">
+                <div class="bg-white p-9 rounded-[2rem] border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 text-center reveal">
+                    <div class="w-14 h-14 rounded-full bg-petPurpleDark text-white flex items-center justify-center mx-auto mb-5 text-xl font-montserrat font-black">1</div>
+                    <h4 class="text-xl font-bold text-petPurpleDark mb-2">Agende Online</h4>
                     <p class="text-gray-500 text-sm font-light leading-relaxed">Escolha o dia, horário e serviço pelo nosso portal. Rápido, fácil, sem precisar ligar.</p>
                 </div>
-
-                <div class="bg-petPurpleDark p-10 rounded-[2rem] shadow-2xl hover:-translate-y-2 transition-all duration-500 text-center gs-reveal" style="transition-delay: 0.1s;">
-                    <div class="w-16 h-16 rounded-full bg-petGreen text-white flex items-center justify-center mx-auto mb-6 text-xl font-montserrat font-black">2</div>
-                    <h4 class="text-xl font-bold text-white mb-3">Traga seu Pet</h4>
+                <div class="bg-petPurpleDark p-9 rounded-[2rem] shadow-2xl hover:-translate-y-1.5 transition-all duration-300 text-center reveal d1">
+                    <div class="w-14 h-14 rounded-full bg-petGreen text-white flex items-center justify-center mx-auto mb-5 text-xl font-montserrat font-black">2</div>
+                    <h4 class="text-xl font-bold text-white mb-2">Traga seu Pet</h4>
                     <p class="text-gray-300 text-sm font-light leading-relaxed">Venha no horário marcado. Recebemos seu pet com atenção e fazemos uma avaliação rápida antes do serviço.</p>
                 </div>
-
-                <div class="bg-white p-10 rounded-[2rem] border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-500 text-center gs-reveal" style="transition-delay: 0.2s;">
-                    <div class="w-16 h-16 rounded-full bg-petPurpleDark text-white flex items-center justify-center mx-auto mb-6 text-xl font-montserrat font-black">3</div>
-                    <h4 class="text-xl font-bold text-petPurpleDark mb-3">Busque Brilhando</h4>
+                <div class="bg-white p-9 rounded-[2rem] border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 text-center reveal d2">
+                    <div class="w-14 h-14 rounded-full bg-petPurpleDark text-white flex items-center justify-center mx-auto mb-5 text-xl font-montserrat font-black">3</div>
+                    <h4 class="text-xl font-bold text-petPurpleDark mb-2">Busque Brilhando</h4>
                     <p class="text-gray-500 text-sm font-light leading-relaxed">Você recebe um aviso quando estiver prontinho. Seu pet sai cheiroso, bonito e feliz.</p>
                 </div>
             </div>
-
-            <div class="text-center mt-14 gs-reveal">
-                <a href="agendamentos.html" class="inline-flex items-center gap-3 bg-petPurpleDark text-white px-10 py-5 rounded-[1.25rem] font-bold shadow-xl hover:bg-petGreen hover:-translate-y-1 transition-all uppercase tracking-[0.2em] text-xs">
+            <div class="text-center mt-12 reveal">
+                <a href="agendamentos.html"
+                   class="inline-flex items-center gap-2.5 bg-petPurpleDark text-white px-9 py-4 rounded-2xl font-bold
+                          shadow-xl hover:bg-petGreen hover:-translate-y-0.5 transition-all duration-300 uppercase tracking-[.18em] text-xs">
                     Quero Agendar
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- ===================== SPA / DIFERENCIAIS ===================== -->
-    <section id="spa" class="py-32 bg-white relative">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-20 gs-reveal">
-                <div class="max-w-2xl">
-                    <h2 class="text-xs font-bold tracking-[0.4em] text-petPurple uppercase mb-4">Nossos Diferenciais</h2>
+    <!-- DIFERENCIAIS -->
+    <section id="spa" class="py-28 bg-white">
+        <div class="container mx-auto px-5">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 reveal">
+                <div>
+                    <p class="text-xs font-bold tracking-[.4em] text-petPurple uppercase mb-3">Nossos Diferenciais</p>
                     <h3 class="text-4xl lg:text-5xl font-montserrat font-extrabold text-petPurpleDark italic">Estrutura pensada<br>para o seu pet.</h3>
                 </div>
-                <a href="agendamentos.html" class="hidden md:inline-flex items-center gap-3 text-xs font-bold tracking-widest uppercase text-petGreen hover:text-petPurple transition-colors mt-6 md:mt-0">
-                    Agendar →
-                </a>
+                <a href="agendamentos.html" class="hidden md:inline-flex text-xs font-bold tracking-widest uppercase text-petGreen hover:text-petPurple transition-colors mt-5 md:mt-0">Agendar →</a>
             </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="bg-surface border border-gray-100 p-8 rounded-[2rem] hover-lift gs-reveal">
-                    <div class="w-12 h-12 rounded-xl bg-petPurple/5 text-petPurple flex items-center justify-center mb-6" aria-hidden="true">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                    </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+                <div class="bg-surface border border-gray-100 p-7 rounded-[2rem] hover-lift reveal">
+                    <div class="w-11 h-11 rounded-xl bg-petPurple/5 text-petPurple flex items-center justify-center mb-5" aria-hidden="true"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div>
                     <h4 class="font-bold text-petPurpleDark text-lg mb-2">Água Ozonizada</h4>
-                    <p class="text-gray-500 text-sm font-light leading-relaxed">Limpa profundamente e cuida da pele ao mesmo tempo, sem química agressiva.</p>
+                    <p class="text-gray-500 text-sm font-light leading-relaxed">Limpa profundamente e cuida da pele sem química agressiva.</p>
                 </div>
-
-                <div class="bg-surface border border-gray-100 p-8 rounded-[2rem] hover-lift gs-reveal" style="transition-delay: 0.1s;">
-                    <div class="w-12 h-12 rounded-xl bg-petGreen/10 text-petGreen flex items-center justify-center mb-6" aria-hidden="true">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path></svg>
-                    </div>
+                <div class="bg-surface border border-gray-100 p-7 rounded-[2rem] hover-lift reveal d1">
+                    <div class="w-11 h-11 rounded-xl bg-petGreen/10 text-petGreen flex items-center justify-center mb-5" aria-hidden="true"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/></svg></div>
                     <h4 class="font-bold text-petPurpleDark text-lg mb-2">Ambiente Climatizado</h4>
-                    <p class="text-gray-500 text-sm font-light leading-relaxed">Temperatura controlada para que seu pet fique confortável em todas as estações.</p>
+                    <p class="text-gray-500 text-sm font-light leading-relaxed">Temperatura controlada para conforto em todas as estações.</p>
                 </div>
-
-                <div class="bg-petPurpleDark text-white p-8 rounded-[2rem] hover-lift shadow-2xl gs-reveal" style="transition-delay: 0.2s;">
-                    <div class="w-12 h-12 rounded-xl bg-white/10 text-luxuryGold flex items-center justify-center mb-6" aria-hidden="true">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
-                    </div>
+                <div class="bg-petPurpleDark p-7 rounded-[2rem] hover-lift shadow-2xl reveal d2">
+                    <div class="w-11 h-11 rounded-xl bg-white/10 text-luxuryGold flex items-center justify-center mb-5" aria-hidden="true"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/></svg></div>
                     <h4 class="font-bold text-white text-lg mb-2">Secagem Silenciosa</h4>
-                    <p class="text-gray-300 text-sm font-light leading-relaxed">Equipamentos de baixo ruído que não assustam. Seu pet fica calmo do começo ao fim.</p>
+                    <p class="text-gray-300 text-sm font-light leading-relaxed">Equipamentos de baixo ruído. Seu pet fica calmo do início ao fim.</p>
                 </div>
-
-                <div class="bg-surface border border-gray-100 p-8 rounded-[2rem] hover-lift gs-reveal" style="transition-delay: 0.3s;">
-                    <div class="w-12 h-12 rounded-xl bg-luxuryGold/10 text-luxuryGold flex items-center justify-center mb-6" aria-hidden="true">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
-                    </div>
+                <div class="bg-surface border border-gray-100 p-7 rounded-[2rem] hover-lift reveal d3">
+                    <div class="w-11 h-11 rounded-xl bg-luxuryGold/10 text-luxuryGold flex items-center justify-center mb-5" aria-hidden="true"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg></div>
                     <h4 class="font-bold text-petPurpleDark text-lg mb-2">Manejo com Cuidado</h4>
-                    <p class="text-gray-500 text-sm font-light leading-relaxed">Respeitamos o tempo e o temperamento de cada animal. Sem pressa, sem estresse.</p>
+                    <p class="text-gray-500 text-sm font-light leading-relaxed">Respeitamos o tempo e temperamento de cada animal. Sem pressa.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ===================== SERVIÇOS / PROTOCOLOS ===================== -->
-    <section id="protocolos" class="py-32 bg-petGreenLight relative overflow-hidden">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-20 gs-reveal relative">
-                <!-- texto decorativo contido com overflow-hidden no pai -->
-                <span class="text-petGreen font-black tracking-[0.3em] text-[10px] uppercase mb-4 block relative z-10">O que oferecemos</span>
-                <h3 class="text-4xl lg:text-5xl font-montserrat font-extrabold text-petPurpleDark relative z-10 italic">Nossos Serviços</h3>
+    <!-- SERVIÇOS -->
+    <section id="protocolos" class="py-28 bg-petGreenLight overflow-hidden">
+        <div class="container mx-auto px-5">
+            <div class="text-center mb-16 reveal">
+                <span class="text-petGreen font-black tracking-[.3em] text-[10px] uppercase mb-3 block">O que oferecemos</span>
+                <h3 class="text-4xl lg:text-5xl font-montserrat font-extrabold text-petPurpleDark italic">Nossos Serviços</h3>
             </div>
-
-            <div class="grid md:grid-cols-3 gap-8 relative z-10">
-                <div class="group relative rounded-[2.5rem] bg-white p-10 border border-gray-100 hover:border-petGreen/30 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 gs-reveal">
-                    <span class="absolute top-8 right-8 text-[10px] font-black uppercase tracking-widest text-gray-300 group-hover:text-petGreen transition-colors" aria-hidden="true">01</span>
-                    <h4 class="text-2xl font-bold text-petPurpleDark mb-4 italic">Banho Completo</h4>
-                    <p class="text-gray-500 text-sm leading-relaxed mb-8">Limpeza profunda com shampoo e condicionador de qualidade, hidratação e secagem suave. Seu pet sai cheiroso e brilhando.</p>
-                    <a href="agendamentos.html" class="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-petPurple hover:text-petGreen transition-colors">
-                        Agendar <span class="group-hover:translate-x-1 transition-transform" aria-hidden="true">→</span>
-                    </a>
+            <div class="grid md:grid-cols-3 gap-7">
+                <div class="group bg-white p-9 rounded-[2.5rem] border border-gray-100 hover:border-petGreen/30 hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 reveal">
+                    <span class="text-[10px] font-black uppercase tracking-widest text-gray-300 group-hover:text-petGreen transition-colors block mb-4" aria-hidden="true">01</span>
+                    <h4 class="text-2xl font-bold text-petPurpleDark mb-3 italic">Banho Completo</h4>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-7">Limpeza profunda com shampoo e condicionador de qualidade, hidratação e secagem suave.</p>
+                    <a href="agendamentos.html" class="text-xs font-bold tracking-widest uppercase text-petPurple hover:text-petGreen transition-colors inline-flex items-center gap-1">Agendar <span class="group-hover:translate-x-1 transition-transform inline-block" aria-hidden="true">→</span></a>
                 </div>
-
-                <div class="group relative rounded-[2.5rem] bg-petPurpleDark text-white p-10 shadow-2xl hover:-translate-y-2 transition-all duration-500 gs-reveal" style="transition-delay: 0.1s;">
-                    <div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent rounded-[2.5rem] pointer-events-none"></div>
-                    <span class="absolute top-8 right-8 text-[10px] font-black uppercase tracking-widest text-petGreen">Popular</span>
-                    <h4 class="text-2xl font-bold mb-4 italic">Banho + Tosa Higiênica</h4>
-                    <p class="text-gray-300 text-sm leading-relaxed mb-8">Banho completo mais a tosa higiênica nas áreas sensíveis. Mais conforto e higiene para o dia a dia do seu pet.</p>
-                    <a href="agendamentos.html" class="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-petGreen hover:text-white transition-colors">
-                        Agendar <span class="group-hover:translate-x-1 transition-transform" aria-hidden="true">→</span>
-                    </a>
+                <div class="group bg-petPurpleDark text-white p-9 rounded-[2.5rem] shadow-2xl hover:-translate-y-1.5 transition-all duration-300 reveal d1">
+                    <span class="text-[10px] font-black uppercase tracking-widest text-petGreen block mb-4">Popular</span>
+                    <h4 class="text-2xl font-bold mb-3 italic">Banho + Tosa Higiênica</h4>
+                    <p class="text-gray-300 text-sm leading-relaxed mb-7">Banho completo mais tosa higiênica nas áreas sensíveis. Mais conforto para o dia a dia.</p>
+                    <a href="agendamentos.html" class="text-xs font-bold tracking-widest uppercase text-petGreen hover:text-white transition-colors inline-flex items-center gap-1">Agendar <span class="group-hover:translate-x-1 transition-transform inline-block" aria-hidden="true">→</span></a>
                 </div>
-
-                <div class="group relative rounded-[2.5rem] bg-white p-10 border border-gray-100 hover:border-petGreen/30 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 gs-reveal" style="transition-delay: 0.2s;">
-                    <span class="absolute top-8 right-8 text-[10px] font-black uppercase tracking-widest text-gray-300 group-hover:text-petGreen transition-colors" aria-hidden="true">03</span>
-                    <h4 class="text-2xl font-bold text-petPurpleDark mb-4 italic">Tosa Design</h4>
-                    <p class="text-gray-500 text-sm leading-relaxed mb-8">Cortes feitos na tesoura que respeitam a raça e deixam seu pet bonito, confortável e bem cuidado por mais tempo.</p>
-                    <a href="agendamentos.html" class="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-petPurple hover:text-petGreen transition-colors">
-                        Agendar <span class="group-hover:translate-x-1 transition-transform" aria-hidden="true">→</span>
-                    </a>
+                <div class="group bg-white p-9 rounded-[2.5rem] border border-gray-100 hover:border-petGreen/30 hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 reveal d2">
+                    <span class="text-[10px] font-black uppercase tracking-widest text-gray-300 group-hover:text-petGreen transition-colors block mb-4" aria-hidden="true">03</span>
+                    <h4 class="text-2xl font-bold text-petPurpleDark mb-3 italic">Tosa Design</h4>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-7">Cortes feitos na tesoura que respeitam a raça e deixam seu pet bonito e bem cuidado.</p>
+                    <a href="agendamentos.html" class="text-xs font-bold tracking-widest uppercase text-petPurple hover:text-petGreen transition-colors inline-flex items-center gap-1">Agendar <span class="group-hover:translate-x-1 transition-transform inline-block" aria-hidden="true">→</span></a>
                 </div>
             </div>
-
-            <div class="mt-12 text-center gs-reveal">
+            <div class="mt-10 text-center reveal">
                 <p class="text-gray-500 text-sm mb-4">Quer saber os valores? É só chamar no WhatsApp.</p>
                 <a href="https://wa.me/5534981838770?text=Olá!%20Gostaria%20de%20saber%20os%20valores%20dos%20serviços%20da%20Pets-Top."
                    target="_blank" rel="noopener"
-                   class="inline-flex items-center gap-3 bg-[#25D366] text-white px-8 py-4 rounded-2xl font-bold text-xs uppercase tracking-widest hover:-translate-y-1 transition-all shadow-lg shadow-[#25D366]/30">
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                   class="inline-flex items-center gap-2.5 bg-[#25D366] text-white px-7 py-3.5 rounded-2xl font-bold
+                          text-xs uppercase tracking-widest hover:-translate-y-0.5 transition-all shadow-lg shadow-[#25D366]/30">
+                    <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
                     Consultar Valores
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- ===================== DEPOIMENTOS ===================== -->
-    <section id="depoimentos" class="py-32 bg-petPurpleDark relative overflow-hidden">
-        <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#fff 1px, transparent 1px); background-size: 40px 40px;" aria-hidden="true"></div>
-
-        <div class="container mx-auto px-6 relative z-10 text-center">
-            <span class="text-petGreen font-black tracking-[0.3em] text-[10px] uppercase mb-4 block gs-reveal">Quem já foi, aprovou</span>
-            <h3 class="text-4xl lg:text-5xl font-montserrat font-extrabold text-white italic mb-16 gs-reveal">O que dizem<br>nossos clientes</h3>
-
-            <div class="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto text-left">
-                <article class="bg-white/5 backdrop-blur-md border border-white/10 p-10 rounded-[2rem] gs-reveal hover:border-white/20 transition-colors">
-                    <div class="flex gap-1 mb-4" aria-label="5 estrelas">
-                        <span class="text-luxuryGold text-sm" aria-hidden="true">★★★★★</span>
-                    </div>
-                    <blockquote class="text-white/80 text-lg font-light leading-relaxed mb-8 italic">
+    <!-- DEPOIMENTOS -->
+    <section id="depoimentos" class="py-28 bg-petPurpleDark relative overflow-hidden">
+        <div class="absolute inset-0 opacity-[0.07]" style="background-image:radial-gradient(#fff 1px,transparent 1px);background-size:38px 38px;" aria-hidden="true"></div>
+        <div class="container mx-auto px-5 relative z-10 text-center">
+            <span class="text-petGreen font-black tracking-[.3em] text-[10px] uppercase mb-3 block reveal">Quem já foi, aprovou</span>
+            <h3 class="text-4xl lg:text-5xl font-montserrat font-extrabold text-white italic mb-14 reveal">O que dizem<br>nossos clientes</h3>
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto text-left">
+                <article class="bg-white/5 border border-white/10 p-9 rounded-[2rem] hover:border-white/20 transition-colors reveal">
+                    <div class="text-luxuryGold text-sm mb-3" aria-label="5 estrelas">★★★★★</div>
+                    <blockquote class="text-white/80 text-lg font-light leading-relaxed mb-7 italic">
                         "O nível de cuidado é incrível. Meu Golden morria de medo de secador e hoje ele sai de lá relaxado. A secagem silenciosa faz toda a diferença. Não troco a Pets-Top por nada."
                     </blockquote>
-                    <footer class="flex items-center gap-4">
-                        <div class="w-12 h-12 rounded-full bg-petPurple/50 flex items-center justify-center text-white font-bold" aria-hidden="true">A</div>
-                        <div>
-                            <p class="text-white font-bold text-sm">Amanda S.</p>
-                            <p class="text-petGreen text-[10px] uppercase tracking-widest">Tutora do Thor</p>
-                        </div>
+                    <footer class="flex items-center gap-3.5">
+                        <div class="w-11 h-11 rounded-full bg-petPurple/50 flex items-center justify-center text-white font-bold" aria-hidden="true">A</div>
+                        <div><p class="text-white font-bold text-sm">Amanda S.</p><p class="text-petGreen text-[10px] uppercase tracking-widest">Tutora do Thor</p></div>
                     </footer>
                 </article>
-
-                <article class="bg-white/5 backdrop-blur-md border border-white/10 p-10 rounded-[2rem] gs-reveal hover:border-white/20 transition-colors" style="transition-delay: 0.2s;">
-                    <div class="flex gap-1 mb-4" aria-label="5 estrelas">
-                        <span class="text-luxuryGold text-sm" aria-hidden="true">★★★★★</span>
-                    </div>
-                    <blockquote class="text-white/80 text-lg font-light leading-relaxed mb-8 italic">
+                <article class="bg-white/5 border border-white/10 p-9 rounded-[2rem] hover:border-white/20 transition-colors reveal d1">
+                    <div class="text-luxuryGold text-sm mb-3" aria-label="5 estrelas">★★★★★</div>
+                    <blockquote class="text-white/80 text-lg font-light leading-relaxed mb-7 italic">
                         "Agendar pelo site é muito fácil, e o atendimento lá é excelente. O ambiente climatizado e o cuidado com a Luna me dão a paz de espírito que eu precisava."
                     </blockquote>
-                    <footer class="flex items-center gap-4">
-                        <div class="w-12 h-12 rounded-full bg-luxuryGold/50 flex items-center justify-center text-white font-bold" aria-hidden="true">M</div>
-                        <div>
-                            <p class="text-white font-bold text-sm">Marcelo F.</p>
-                            <p class="text-petGreen text-[10px] uppercase tracking-widest">Tutor da Luna</p>
-                        </div>
+                    <footer class="flex items-center gap-3.5">
+                        <div class="w-11 h-11 rounded-full bg-luxuryGold/50 flex items-center justify-center text-white font-bold" aria-hidden="true">M</div>
+                        <div><p class="text-white font-bold text-sm">Marcelo F.</p><p class="text-petGreen text-[10px] uppercase tracking-widest">Tutor da Luna</p></div>
                     </footer>
                 </article>
             </div>
         </div>
     </section>
 
-    <!-- ===================== CONTATO ===================== -->
-    <section id="contato" class="py-32 bg-white">
-        <div class="container mx-auto px-6 grid lg:grid-cols-12 gap-16 items-center">
-            <div class="lg:col-span-5 gs-reveal">
-                <h3 class="text-5xl font-montserrat font-black text-petPurpleDark mb-8 leading-tight italic">
+    <!-- CONTATO -->
+    <section id="contato" class="py-28 bg-white">
+        <div class="container mx-auto px-5 grid lg:grid-cols-12 gap-14 items-center">
+            <div class="lg:col-span-5 reveal">
+                <h3 class="text-5xl font-montserrat font-black text-petPurpleDark mb-7 leading-tight italic">
                     Seu pet merece<br>o <span class="text-petGreen">melhor.</span>
                 </h3>
-                <p class="text-gray-500 mb-10 text-lg font-light">
-                    Estamos prontos para receber seu melhor amigo com todo o cuidado que ele merece.
-                </p>
-
-                <address class="space-y-6 mb-12 not-italic">
-                    <div class="flex items-start gap-5">
-                        <div class="w-12 h-12 rounded-xl bg-petGreenLight text-petGreen flex items-center justify-center shrink-0" aria-hidden="true">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                        </div>
-                        <div>
-                            <p class="font-bold text-petPurpleDark text-sm uppercase tracking-widest mb-1">Endereço</p>
-                            <p class="text-gray-500 text-sm">R. Guimarães, 694<br>Guimarânia - MG</p>
-                        </div>
+                <p class="text-gray-500 mb-9 text-lg font-light">Estamos prontos para receber seu melhor amigo com todo o cuidado que ele merece.</p>
+                <address class="space-y-5 mb-10 not-italic">
+                    <div class="flex items-start gap-4">
+                        <div class="w-11 h-11 rounded-xl bg-petGreenLight text-petGreen flex items-center justify-center shrink-0" aria-hidden="true"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg></div>
+                        <div><p class="font-bold text-petPurpleDark text-sm uppercase tracking-widest mb-1">Endereço</p><p class="text-gray-500 text-sm">R. Guimarães, 694 — Guimarânia, MG</p></div>
                     </div>
-                    <div class="flex items-start gap-5">
-                        <div class="w-12 h-12 rounded-xl bg-petPurple/5 text-petPurple flex items-center justify-center shrink-0" aria-hidden="true">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                        </div>
-                        <div>
-                            <p class="font-bold text-petPurpleDark text-sm uppercase tracking-widest mb-1">Horário de Atendimento</p>
-                            <p class="text-gray-500 text-sm">Terça a Sábado<br>09:00 às 18:00</p>
-                        </div>
+                    <div class="flex items-start gap-4">
+                        <div class="w-11 h-11 rounded-xl bg-petPurple/5 text-petPurple flex items-center justify-center shrink-0" aria-hidden="true"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+                        <div><p class="font-bold text-petPurpleDark text-sm uppercase tracking-widest mb-1">Horário</p><p class="text-gray-500 text-sm">Terça a Sábado — 09:00 às 18:00</p></div>
                     </div>
                 </address>
-
-                <div class="flex flex-wrap gap-4">
-                    <a href="agendamentos.html" class="flex-1 text-center bg-petGreen text-white px-8 py-4 rounded-2xl font-bold uppercase tracking-widest text-xs shadow-xl shadow-petGreen/30 hover:bg-petPurpleDark transition-all">
+                <div class="flex flex-wrap gap-3">
+                    <a href="agendamentos.html"
+                       class="flex-1 min-w-[160px] text-center bg-petGreen text-white px-7 py-3.5 rounded-2xl font-bold
+                              uppercase tracking-widest text-xs shadow-xl shadow-petGreen/30 hover:bg-petPurpleDark transition-colors duration-300">
                         Agendar Online
                     </a>
                     <a href="https://wa.me/5534981838770?text=Olá!%20Gostaria%20de%20falar%20com%20a%20Pets-Top."
                        target="_blank" rel="noopener"
-                       class="w-14 h-14 bg-[#25D366] rounded-2xl flex items-center justify-center hover:opacity-90 transition-opacity text-white shadow-lg shadow-[#25D366]/30"
-                       aria-label="Falar no WhatsApp da Pets-Top">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                       class="w-[52px] h-[52px] bg-[#25D366] rounded-2xl flex items-center justify-center hover:opacity-90 transition-opacity text-white shadow-lg"
+                       aria-label="WhatsApp da Pets-Top">
+                        <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
                     </a>
                     <a href="https://www.instagram.com/Pets_topm" target="_blank" rel="noopener"
-                       class="w-14 h-14 bg-surface border border-gray-100 rounded-2xl flex items-center justify-center hover:bg-petPurple hover:text-white transition-all text-petPurpleDark"
-                       aria-label="Perfil da Pets-Top no Instagram">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                       class="w-[52px] h-[52px] bg-surface border border-gray-100 rounded-2xl flex items-center justify-center
+                              hover:bg-petPurple hover:text-white text-petPurpleDark transition-all duration-300"
+                       aria-label="Instagram da Pets-Top">
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                     </a>
                 </div>
             </div>
-
-            <div class="lg:col-span-7 h-[500px] rounded-[3rem] overflow-hidden shadow-2xl border-4 border-white gs-reveal relative group">
-                <div class="absolute inset-0 bg-petPurpleDark/10 pointer-events-none group-hover:bg-transparent transition-colors duration-500 z-10"></div>
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3793.1818360215714!2d-46.7972074!3d-18.8475225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ae35cfb0c7ba4f%3A0x6b0a1c7c9e1c1b2c!2sR.%20Guimar%C3%A3es%2C%20694%20-%20Guimar%C3%A2nia%2C%20MG%2C%2038740-000!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr"
-                    width="100%" height="100%"
-                    style="border:0; filter: contrast(1.1) grayscale(0.2);"
-                    allowfullscreen=""
-                    loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"
-                    title="Localização da Pets-Top no Google Maps">
-                </iframe>
+            <div class="lg:col-span-7 h-[480px] rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white reveal">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3793.1818360215714!2d-46.7972074!3d-18.8475225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ae35cfb0c7ba4f%3A0x6b0a1c7c9e1c1b2c!2sR.%20Guimar%C3%A3es%2C%20694%20-%20Guimar%C3%A2nia%2C%20MG!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr"
+                    width="100%" height="100%" style="border:0;filter:contrast(1.1) grayscale(.18);"
+                    allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                    title="Localização da Pets-Top no Google Maps"></iframe>
             </div>
         </div>
     </section>
 
-    <!-- ===================== FOOTER ===================== -->
-    <footer class="bg-petPurpleDark pt-32 pb-10 border-t border-white/5 relative overflow-hidden">
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full overflow-hidden flex justify-center pointer-events-none opacity-5" aria-hidden="true">
-            <h2 class="text-[20vw] font-montserrat font-black text-white whitespace-nowrap leading-none">PETS-TOP</h2>
+    <!-- FOOTER -->
+    <footer class="bg-petPurpleDark pt-24 pb-10 border-t border-white/5 overflow-hidden relative">
+        <div class="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden opacity-[0.04]" aria-hidden="true">
+            <span class="text-[22vw] font-montserrat font-black text-white whitespace-nowrap leading-none">PETS-TOP</span>
         </div>
-
-        <div class="container mx-auto px-6 relative z-10">
-            <div class="grid md:grid-cols-12 gap-12 border-b border-white/10 pb-20 mb-10">
+        <div class="container mx-auto px-5 relative z-10">
+            <div class="grid md:grid-cols-12 gap-10 border-b border-white/10 pb-16 mb-8">
                 <div class="md:col-span-5">
-                    <img src="/imgs/intro/logo.svg" alt="PetsTop Logo" class="w-48 mb-8 brightness-0 invert" width="192" height="64">
-                    <p class="text-white/60 text-sm font-light leading-relaxed max-w-sm">
-                        Banho, tosa e estética animal com cuidado, técnica e atenção individual. Em Guimarânia, MG.
-                    </p>
+                   
+                    <p class="text-white/55 text-sm font-light leading-relaxed max-w-xs">Banho, tosa e estética animal com cuidado, técnica e atenção individual em Guimarânia, MG.</p>
                 </div>
-
-                <nav class="md:col-span-3" aria-label="Menu rápido">
-                    <h4 class="text-white font-bold tracking-[0.2em] uppercase text-xs mb-6">Menu Rápido</h4>
-                    <ul class="space-y-4">
-                        <li><a href="#filosofia" class="text-white/60 hover:text-petGreen transition-colors text-sm">Sobre</a></li>
-                        <li><a href="#como-funciona" class="text-white/60 hover:text-petGreen transition-colors text-sm">Como Funciona</a></li>
-                        <li><a href="#protocolos" class="text-white/60 hover:text-petGreen transition-colors text-sm">Serviços</a></li>
-                        <li><a href="#depoimentos" class="text-white/60 hover:text-petGreen transition-colors text-sm">Depoimentos</a></li>
+                <nav class="md:col-span-3" aria-label="Links rápidos">
+                    <h4 class="text-white font-bold tracking-[.2em] uppercase text-xs mb-5">Menu Rápido</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#filosofia"     class="text-white/55 hover:text-petGreen transition-colors text-sm">Sobre</a></li>
+                        <li><a href="#como-funciona" class="text-white/55 hover:text-petGreen transition-colors text-sm">Como Funciona</a></li>
+                        <li><a href="#protocolos"    class="text-white/55 hover:text-petGreen transition-colors text-sm">Serviços</a></li>
+                        <li><a href="#depoimentos"   class="text-white/55 hover:text-petGreen transition-colors text-sm">Depoimentos</a></li>
                     </ul>
                 </nav>
-
                 <div class="md:col-span-4">
-                    <h4 class="text-white font-bold tracking-[0.2em] uppercase text-xs mb-6">Atendimento</h4>
-                    <ul class="space-y-4">
-                        <li><a href="agendamentos.html" class="text-white/60 hover:text-petGreen transition-colors text-sm">Agendar Online</a></li>
-                        <li>
-                            <a href="https://wa.me/5534981838770" target="_blank" rel="noopener"
-                               class="text-white/60 hover:text-[#25D366] transition-colors text-sm flex items-center gap-2"
-                               aria-label="WhatsApp da Pets-Top">
-                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                                (34) 98183-8770
-                            </a>
-                        </li>
-                        <li class="text-white/60 text-sm">Ter – Sáb | 09h às 18h</li>
+                    <h4 class="text-white font-bold tracking-[.2em] uppercase text-xs mb-5">Atendimento</h4>
+                    <ul class="space-y-3">
+                        <li><a href="agendamentos.html" class="text-white/55 hover:text-petGreen transition-colors text-sm">Agendar Online</a></li>
+                        <li><a href="https://wa.me/5534981838770" target="_blank" rel="noopener" class="text-white/55 hover:text-[#25D366] transition-colors text-sm flex items-center gap-2" aria-label="WhatsApp (34) 98183-8770"><svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>(34) 98183-8770</a></li>
+                        <li class="text-white/55 text-sm">Ter – Sáb | 09h às 18h</li>
                     </ul>
                 </div>
             </div>
-
-            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
-                <p class="text-white/40 text-xs font-light tracking-wider">
-                    © 2026 Pets-Top. Todos os direitos reservados.
-                </p>
-
+            <div class="flex flex-col md:flex-row justify-between items-center gap-5">
+                <p class="text-white/35 text-xs tracking-wider">© 2026 Pets-Top. Todos os direitos reservados.</p>
                 <a href="https://okto-ag.com" target="_blank" rel="noopener"
-                   class="group flex items-center gap-4 bg-white/5 px-5 py-2.5 rounded-full hover:bg-petGreen transition-all duration-500 border border-white/10 hover:border-petGreen">
+                   class="group flex items-center gap-3.5 bg-white/5 px-5 py-2.5 rounded-full
+                          hover:bg-petGreen transition-all duration-400 border border-white/10 hover:border-petGreen">
                     <div class="text-right">
-                        <span class="block text-[8px] text-white/50 font-bold uppercase tracking-widest group-hover:text-white/80 transition-colors">Digital Experience by</span>
+                        <span class="block text-[8px] text-white/45 font-bold uppercase tracking-widest group-hover:text-white/75 transition-colors">Digital Experience by</span>
                         <span class="text-[10px] font-black text-white tracking-widest">OKTO DESIGN AG</span>
                     </div>
-                    <div class="w-8 h-8 bg-white text-petPurpleDark rounded-full flex items-center justify-center group-hover:bg-petPurpleDark group-hover:text-white transition-colors shadow-lg" aria-hidden="true">
-                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    <div class="w-7 h-7 bg-white text-petPurpleDark rounded-full flex items-center justify-center group-hover:bg-petPurpleDark group-hover:text-white transition-colors shadow-md" aria-hidden="true">
+                        <svg width="11" height="11" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
                     </div>
                 </a>
             </div>
         </div>
     </footer>
 
-    <!-- ===================== SCRIPTS ===================== -->
+    <!-- SCRIPTS — zero dependências externas -->
     <script>
-        /* ---- Menu Mobile ---- */
-        function closeMobileMenu() {
-            const menu = document.getElementById('mobile-menu');
-            const btn  = document.getElementById('hamburger-btn');
+        /* ── Menu mobile ──────────────────────────────────────── */
+        var btn  = document.getElementById('hbg-btn');
+        var menu = document.getElementById('mobile-menu');
+
+        function closeMenu() {
             menu.classList.remove('open');
             btn.classList.remove('open');
-            btn.setAttribute('aria-expanded', 'false');
+            btn.setAttribute('aria-expanded','false');
         }
 
-        document.getElementById('hamburger-btn').addEventListener('click', function() {
-            const menu   = document.getElementById('mobile-menu');
-            const isOpen = menu.classList.toggle('open');
-            this.classList.toggle('open', isOpen);
-            this.setAttribute('aria-expanded', String(isOpen));
+        btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            var open = menu.classList.toggle('open');
+            btn.classList.toggle('open', open);
+            btn.setAttribute('aria-expanded', String(open));
         });
 
-        /* Fecha menu ao clicar fora */
         document.addEventListener('click', function(e) {
-            const header = document.getElementById('main-header');
-            if (!header.contains(e.target)) closeMobileMenu();
+            if (!document.getElementById('main-header').contains(e.target)) closeMenu();
         });
 
-        /* ---- Header shadow no scroll ---- */
+        /* ── Header sombra no scroll ──────────────────────────── */
         window.addEventListener('scroll', function() {
-            document.querySelector('header').classList.toggle('shadow-md', window.scrollY > 50);
+            document.getElementById('main-header')
+                .classList.toggle('shadow-lg', window.scrollY > 40);
         }, { passive: true });
-    </script>
 
-    <script>
-        /* CORREÇÃO 1 — Impede o browser de restaurar posição de scroll ao recarregar
-           (Safari/Chrome mobile salvam a posição e jogam o usuário no meio da página) */
-        if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
-        window.scrollTo(0, 0);
-    </script>
+        /* ── Scroll reveal — IntersectionObserver nativo ─────────
+           Não toca em scrollTop nem em window.scroll.
+           Apenas adiciona .visible quando o elemento aparece na tela.
+           A transição (opacity + translateY) está 100% em CSS.
+        ──────────────────────────────────────────────────────────*/
+        var io = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    io.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-    <script>
-        window.addEventListener('load', function () {
-
-            window.scrollTo(0, 0);
-
-            /* ---- Lenis smooth scroll ---- */
-            if (typeof Lenis !== 'undefined') {
-                const lenis = new Lenis({
-                    duration: 1.2,
-                    easing: function(t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); },
-                    smoothWheel: true,
-                    smoothTouch: false,
-                    touchMultiplier: 1,
-                });
-                function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
-                requestAnimationFrame(raf);
-                if (typeof ScrollTrigger !== 'undefined') { lenis.on('scroll', ScrollTrigger.update); }
-            }
-
-            /* ---- GSAP ScrollTrigger reveals ----
-               CORREÇÃO 2 — Removido 'reverse'. O 'toggleActions: play none none reverse'
-               anterior desfazia a animação ao rolar para cima, fazendo os elementos
-               voltarem para opacity:0 / y:50, o que puxava a página de volta no mobile.
-               'once: true' garante que cada elemento anima uma única vez. */
-            if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-                gsap.registerPlugin(ScrollTrigger);
-                gsap.utils.toArray('.gs-reveal').forEach(function(el) {
-                    gsap.from(el, {
-                        y: 40,
-                        opacity: 0,
-                        duration: 1.0,
-                        ease: 'power3.out',
-                        scrollTrigger: {
-                            trigger: el,
-                            start: 'top 88%',
-                            toggleActions: 'play none none none',
-                            once: true,
-                        }
-                    });
-                });
-            }
+        document.querySelectorAll('.reveal').forEach(function(el) {
+            io.observe(el);
         });
     </script>
 </body>
